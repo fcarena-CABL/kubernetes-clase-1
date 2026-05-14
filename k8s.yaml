@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress-fcarena
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world-fcarena.example
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: web-fcarena
+                port:
+                  number: 8080
